@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Package, Clock, CheckCircle, XCircle, Search, Filter, DollarSign, Calendar, ArrowUpDown, CreditCard } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 import AdminLayout from '../../components/admin/AdminLayout';
 
 const OrderList = () => {
@@ -36,6 +37,38 @@ const OrderList = () => {
             console.error("Failed to fetch orders", err);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleStatusChange = async (orderId, newStatus) => {
+        const toastId = toast.loading('Updating order status...');
+        try {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            const res = await fetch(`/api/orders/${orderId}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${userInfo.token}`
+                },
+                body: JSON.stringify({ status: newStatus })
+            });
+            
+            const data = await res.json();
+            
+            if (res.ok) {
+                toast.success('Order status updated successfully!', { id: toastId });
+                // Update local state
+                setOrders(prevOrders => 
+                    prevOrders.map(order => 
+                        order._id === orderId ? { ...order, status: newStatus } : order
+                    )
+                );
+            } else {
+                toast.error(data.message || 'Failed to update status', { id: toastId });
+            }
+        } catch (err) {
+            console.error(err);
+            toast.error('Error updating status', { id: toastId });
         }
     };
 
@@ -81,6 +114,8 @@ const OrderList = () => {
         switch (status?.toLowerCase()) {
             case 'completed': return 'text-green-500 bg-green-500/10 border-green-500/20';
             case 'processing': return 'text-blue-500 bg-blue-500/10 border-blue-500/20';
+            case 'shipped': return 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20';
+            case 'delivered': return 'text-teal-400 bg-teal-500/10 border-teal-500/20';
             case 'cancelled': return 'text-red-500 bg-red-500/10 border-red-500/20';
             default: return 'text-amber-500 bg-amber-500/10 border-amber-500/20'; // Pending
         }
@@ -248,9 +283,18 @@ const OrderList = () => {
                                         </td>
                                         <td className="p-4 font-bold text-foreground text-sm">${order.totalAmount}</td>
                                         <td className="p-4">
-                                            <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase border tracking-wider ${getStatusColor(order.status)}`}>
-                                                {order.status || 'Pending'}
-                                            </span>
+                                            <select
+                                                value={order.status || 'pending'}
+                                                onChange={(e) => handleStatusChange(order._id, e.target.value)}
+                                                className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase border tracking-wider bg-slate-900 border-white/10 text-white outline-none cursor-pointer ${getStatusColor(order.status)}`}
+                                            >
+                                                <option value="pending" className="bg-slate-900 text-amber-500">Pending</option>
+                                                <option value="processing" className="bg-slate-900 text-blue-500">Processing</option>
+                                                <option value="shipped" className="bg-slate-900 text-indigo-500">Shipped</option>
+                                                <option value="delivered" className="bg-slate-900 text-teal-500">Delivered</option>
+                                                <option value="completed" className="bg-slate-900 text-green-500">Completed</option>
+                                                <option value="cancelled" className="bg-slate-900 text-red-500">Cancelled</option>
+                                            </select>
                                         </td>
                                     </tr>
                                 ))

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Package, User, MapPin, CreditCard, Calendar, CheckCircle, Truck, XCircle, AlertCircle } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 import AdminLayout from '../../components/admin/AdminLayout';
 
 const AdminOrderDetails = () => {
@@ -38,6 +39,7 @@ const AdminOrderDetails = () => {
     const updateStatus = async (newStatus) => {
         if (!window.confirm(`Are you sure you want to change status to ${newStatus}?`)) return;
         
+        const toastId = toast.loading('Updating order status...');
         setUpdating(true);
         try {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -50,14 +52,16 @@ const AdminOrderDetails = () => {
                 body: JSON.stringify({ status: newStatus })
             });
             
+            const data = await res.json();
             if (res.ok) {
+                toast.success('Order status updated successfully!', { id: toastId });
                 fetchOrder(); // Refresh data
             } else {
-                const errorData = await res.json();
-                alert(errorData.message || "Failed to update status");
+                toast.error(data.message || "Failed to update status", { id: toastId });
             }
         } catch (err) {
-            alert("Error updating status");
+            console.error(err);
+            toast.error("Error updating status", { id: toastId });
         } finally {
             setUpdating(false);
         }
@@ -79,8 +83,10 @@ const AdminOrderDetails = () => {
         switch (status?.toLowerCase()) {
             case 'completed': return 'text-green-500 bg-green-500/10 border-green-500/20';
             case 'processing': return 'text-blue-500 bg-blue-500/10 border-blue-500/20';
+            case 'shipped': return 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20';
+            case 'delivered': return 'text-teal-400 bg-teal-500/10 border-teal-500/20';
             case 'cancelled': return 'text-red-500 bg-red-500/10 border-red-500/20';
-            default: return 'text-gold bg-gold/10 border-gold/20';
+            default: return 'text-amber-500 bg-amber-500/10 border-amber-500/20'; // Pending
         }
     };
 
@@ -99,25 +105,21 @@ const AdminOrderDetails = () => {
                         </span>
                     </p>
                 </div>
-                <div className="flex gap-2">
-                    {order.status !== 'completed' && (
-                        <button 
-                            disabled={updating}
-                            onClick={() => updateStatus('completed')}
-                            className="btn-primary bg-green-600 hover:bg-green-700 border-none text-xs px-4 py-2"
-                        >
-                            Mark Completed
-                        </button>
-                    )}
-                    {order.status !== 'cancelled' && (
-                        <button 
-                             disabled={updating}
-                             onClick={() => updateStatus('cancelled')}
-                             className="px-4 py-2 rounded-lg bg-red-500/10 text-red-500 border border-red-500/20 hover:bg-red-500/20 text-xs"
-                        >
-                            Cancel Order
-                        </button>
-                    )}
+                <div className="flex items-center gap-2">
+                    <span className="text-xs text-slate-400 font-medium mr-1">Status:</span>
+                    <select
+                        disabled={updating}
+                        value={order.status || 'pending'}
+                        onChange={(e) => updateStatus(e.target.value)}
+                        className={`px-3 py-2 rounded-lg text-xs font-bold uppercase border tracking-wider bg-slate-900 border-white/10 text-white outline-none cursor-pointer ${getStatusColor(order.status)}`}
+                    >
+                        <option value="pending" className="bg-slate-900 text-amber-500">Pending</option>
+                        <option value="processing" className="bg-slate-900 text-blue-500">Processing</option>
+                        <option value="shipped" className="bg-slate-900 text-indigo-500">Shipped</option>
+                        <option value="delivered" className="bg-slate-900 text-teal-500">Delivered</option>
+                        <option value="completed" className="bg-slate-900 text-green-500">Completed</option>
+                        <option value="cancelled" className="bg-slate-900 text-red-500">Cancelled</option>
+                    </select>
                 </div>
             </div>
 
