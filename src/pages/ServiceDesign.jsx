@@ -32,16 +32,16 @@ const ServiceDesign = () => {
     return (
         <div className="pt-24 min-h-screen container-custom pb-20">
             <Head 
-                title="Premium UI/UX Design Services & Branding | MM Universal"
-                description="Transform your digital presence with our expert UI/UX design services. Mobile-first, user-centric designs that convert."
-                keywords="ui/ux design, branding, web design, app design, user interface, user experience"
-                schema={{
-                    "@type": "Service",
-                    "name": "UI/UX Design",
-                    "provider": { "@type": "Organization", "name": "MM Universal" },
-                    "areaServed": "Worldwide"
-                }}
-            />
+                 title="Premium UI/UX Design Services & Branding | MM Universal"
+                 description="Transform your digital presence with our expert UI/UX design services. Mobile-first, user-centric designs that convert. MM Universal is the leading digital agency for web design & seo."
+                 keywords="digital agency for web design & seo, ui/ux design, branding, web design, app design, user interface, user experience"
+                 schema={{
+                     "@type": "Service",
+                     "name": "UI/UX Design",
+                     "provider": { "@type": "Organization", "name": "MM Universal" },
+                     "areaServed": "Worldwide"
+                 }}
+             />
             {/* Hero */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <div>
@@ -163,26 +163,31 @@ const ServiceDesign = () => {
             {/* Interlinking Section */}
             <div className="mt-20 border-t border-white/10 pt-16">
                  <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Bring Your Designs to <span className="text-blue-500">Life</span></h2>
-                    <p className="text-slate-400">Seamlessly move from design to development.</p>
+                    <h2 className="text-3xl font-bold mb-4">Elevate Your Brand's Visual Identity</h2>
+                    <p className="text-slate-400">Pair your web layout with professional digital assets.</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                     <Link to="/web-sale" className="glass-card p-8 hover:border-blue-500/50 transition-colors group text-center">
-                        <div className="w-12 h-12 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-4 text-blue-500">
-                           <Layout className="w-6 h-6" />
+                     <Link to="/services/creative" className="glass-card p-8 hover:border-pink-500/50 transition-colors group text-center flex flex-col items-center">
+                        <div className="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center mb-4 text-pink-500">
+                           <Palette className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Web Development</h3>
-                        <p className="text-slate-400 text-sm">Get your designs built with pixel-perfect precision.</p>
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">Creative Services</h3>
+                        <p className="text-slate-400 text-sm">
+                            Enhance your UI/UX designs with the professional content creator team at our{' '}
+                            <span className="text-accent hover:underline font-semibold">
+                                digital agency for web design & seo
+                            </span>.
+                        </p>
                     </Link>
-                     <Link to="/contact" className="glass-card p-8 hover:border-green-500/50 transition-colors group text-center">
-                        <div className="w-12 h-12 mx-auto bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
-                           <ArrowRight className="w-6 h-6" />
+                     <Link to="/contact" className="glass-card p-8 hover:border-green-500/50 transition-colors group text-center flex flex-col items-center">
+                        <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
+                           <Layers className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Start Project</h3>
                         <p className="text-slate-400 text-sm">Ready to build? Let's discuss your requirements.</p>
                     </Link>
                 </div>
-                </div>
+            </div>
             </div>
         </div>
     );

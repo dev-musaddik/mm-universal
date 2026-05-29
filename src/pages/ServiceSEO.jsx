@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, BarChart3, Search, Globe, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Head from '../components/layout/Seo';
 
 const ServiceSEO = () => {
     const [packages, setPackages] = useState([]);
@@ -33,6 +35,11 @@ const ServiceSEO = () => {
 
     return (
         <div className="pt-24 min-h-screen container-custom pb-20">
+            <Head 
+                title="SEO & Growth Services | MM Universal"
+                description="Dominate search engines and drive high-converting organic traffic with SEO packages by MM Universal, a premier digital agency for web design & seo."
+                keywords="digital agency for web design & seo, seo growth, organic search traffic, keyword ranking services, search engine optimization"
+            />
             {/* Hero */}
             <div className="text-center max-w-4xl mx-auto mb-20">
                 <motion.span 
@@ -94,6 +101,16 @@ const ServiceSEO = () => {
                         <button className="btn-outline w-full text-sm">View Details</button>
                     </div>
                 ))}
+            </div>
+
+            {/* Interlinking */}
+            <div className="mt-16 pt-8 border-t border-white/10 text-center">
+                <p className="text-muted-foreground text-base">
+                    Looking to convert your increased search traffic with stunning visuals? Check out the UI/UX design capabilities of our{' '}
+                    <Link to="/services/design" className="text-accent hover:underline font-semibold">
+                        digital agency for web design & seo
+                    </Link>.
+                </p>
             </div>
         </div>
     );

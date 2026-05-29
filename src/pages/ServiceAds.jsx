@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Target, TrendingUp, BarChart2, DollarSign, Facebook, Instagram, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Seo from '../components/layout/Seo';
 
 const ServiceAds = () => {
@@ -40,8 +41,8 @@ const ServiceAds = () => {
         <div className="pt-24 min-h-screen container-custom pb-20">
             <Seo 
                 title="Google & Meta Ads Management | MM Universal"
-                description="High-ROI advertising campaigns on Google, Facebook, and Instagram. Scale your business with targeted traffic."
-                keywords="google ads management, facebook ads agency, ppc services, instagram marketing"
+                description="High-ROI advertising campaigns on Google, Facebook, and Instagram by MM Universal, a premier digital agency for web design & seo."
+                keywords="digital agency for web design & seo, google ads management, facebook ads agency, ppc services, instagram marketing"
             />
 
             {/* Hero */}
@@ -169,6 +170,16 @@ const ServiceAds = () => {
                     <h3 className="text-xl font-bold mb-2">Instagram Ads</h3>
                     <p className="text-slate-400 mb-6">Visually compelling story and feed ads to build brand awareness and sales.</p>
                 </div>
+            </div>
+
+            {/* Interlinking */}
+            <div className="mt-16 pt-8 border-t border-white/10 text-center">
+                <p className="text-muted-foreground text-base">
+                    Need a custom, high-converting website to direct your targeted traffic to? Check out the web development options at our{' '}
+                    <Link to="/web-sale" className="text-accent hover:underline font-semibold">
+                        digital agency for web design & seo
+                    </Link>.
+                </p>
             </div>
         </div>
     );

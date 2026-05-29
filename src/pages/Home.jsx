@@ -39,8 +39,8 @@ const Home = () => {
     <>
       <Seo 
         title="MM Universal | #1 Digital Agency for Web Design & SEO"
-        description="Transform your business with premium web design, SEO, and ad management services. We build digital success stories."
-        keywords="web design agency, digital marketing experts, seo services, google ads management, custom web development, buy website"
+        description="MM Universal is a premier digital agency for web design & seo, providing custom development, SEO growth, and digital marketing to scale your business."
+        keywords="digital agency for web design & seo, web design agency, digital marketing experts, seo services, google ads management, custom web development, buy website"
       />
 
       {/* Hero Section */}
@@ -104,7 +104,11 @@ const Home = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Our Core Expertise</h2>
             <p className="text-slate-400 text-lg">
-              Comprehensive digital services designed to elevate your brand.
+              As a premier{' '}
+              <Link to="/services" className="text-accent hover:underline font-semibold">
+                digital agency for web design & seo
+              </Link>
+              , we offer comprehensive digital services designed to elevate your brand.
             </p>
           </div>
 

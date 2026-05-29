@@ -253,7 +253,7 @@ const AdminSettings = () => {
                                 placeholder="G-XXXXXXXXXX"
                                 className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all" 
                             />
-                            <p className="text-xs text-slate-500">Find this in Analytics > Admin > Data Streams.</p>
+                            <p className="text-xs text-slate-500">Find this in Analytics &gt; Admin &gt; Data Streams.</p>
                         </div>
 
                         <div className="space-y-2">
@@ -265,7 +265,7 @@ const AdminSettings = () => {
                                 placeholder="pub-XXXXXXXXXXXXXXXX"
                                 className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all" 
                             />
-                            <p className="text-xs text-slate-500">Find this in AdSense > Account > Settings.</p>
+                            <p className="text-xs text-slate-500">Find this in AdSense &gt; Account &gt; Settings.</p>
                         </div>
 
                         <div className="pt-4">

@@ -35,8 +35,8 @@ const ServiceCreative = () => {
         <div className="pt-24 min-h-screen">
              <Head 
                 title="Creative Services: Design & Video | MM Universal"
-                description="Affordable graphic design and video editing services. Logos, banners, social media content, and basic video post-production."
-                keywords="graphic design, video editing, logo design, canva designer, youtube editor, social media content"
+                description="Affordable graphic design and video editing services by MM Universal. We are a premier digital agency for web design & seo providing logos, banners, and social media content."
+                keywords="digital agency for web design & seo, graphic design, video editing, logo design, canva designer, youtube editor, social media content"
             />
 
             {/* Hero Section */}
@@ -209,9 +209,21 @@ const ServiceCreative = () => {
                         Let's collaborate to build the visual assets your brand deserves. 
                         Fast delivery and professional quality guaranteed.
                     </p>
-                    <Link to="/contact" className="btn-primary py-5 px-10 text-xl shadow-xl shadow-pink-500/20 hover:shadow-pink-500/40 transition-shadow">
-                        Get a Free Quote
-                    </Link>
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+                        <Link to="/contact" className="btn-primary py-5 px-10 text-xl shadow-xl shadow-pink-500/20 hover:shadow-pink-500/40 transition-shadow">
+                            Get a Free Quote
+                        </Link>
+                        <Link to="/services/ads" className="btn-outline py-5 px-10 text-xl flex items-center justify-center gap-2">
+                            Promote Your Assets <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </div>
+                    <p className="mt-8 text-base text-slate-400">
+                        Looking to run high-ROI campaigns using these visual assets? Let our{' '}
+                        <Link to="/services/ads" className="text-accent hover:underline font-semibold">
+                            digital agency for web design & seo
+                        </Link>{' '}
+                        handle your Google & Meta Ads.
+                    </p>
                 </div>
             </section>
         </div>

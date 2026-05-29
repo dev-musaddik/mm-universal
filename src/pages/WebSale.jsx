@@ -85,9 +85,9 @@ const WebSale = () => {
     return (
         <div className="pt-32 pb-20 container-custom">
             <Head 
-                title="Affordable Web Design Packages | Web Sale"
-                description="Get a professional custom website starting at $499. Perfect for small businesses and e-commerce. limited time offers."
-                keywords="affordable web design, buy website, cheap website builder, ecommerce website package, business website sale"
+                title="Affordable Web Design Packages | Web Sale | MM Universal"
+                description="Get a professional custom website starting at $499. MM Universal is a premier digital agency for web design & seo offering high performance e-commerce packages."
+                keywords="digital agency for web design & seo, affordable web design, buy website, cheap website builder, ecommerce website package, business website sale"
                 schema={productSchema}
             />
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -156,7 +156,13 @@ const WebSale = () => {
             <div className="mt-20 border-t border-white/10 pt-16">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">Complete Your Digital Presence</h2>
-                    <p className="text-slate-400">Combine these services for maximum impact.</p>
+                    <p className="text-slate-400 text-lg">
+                        Return to our{' '}
+                        <Link to="/" className="text-accent hover:underline font-semibold">
+                            digital agency for web design & seo
+                        </Link>{' '}
+                        homepage or combine these services for maximum impact.
+                    </p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <Link to="/services/design" className="glass-card p-8 hover:border-pink-500/50 transition-colors group text-center">

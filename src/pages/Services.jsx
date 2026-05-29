@@ -8,8 +8,8 @@ const Services = () => {
       <div className="pt-32 pb-20 container-custom">
         <Head 
              title="Digital Services | MM Universal"
-             description="Comprehensive digital solutions: Web Development, SEO, UI/UX Design, and Ads Management. We scale businesses."
-             keywords="digital marketing services, web development packages, seo agency, google ads management"
+             description="Explore premium services by MM Universal, a leading digital agency for web design & seo. We offer Web Development, SEO, UI/UX Design, and Ads Management."
+             keywords="digital agency for web design & seo, digital marketing services, web development packages, seo agency, google ads management"
         />
         <h1 className="text-4xl md:text-6xl font-display font-bold mb-8 text-foreground">Our Services</h1>
         <p className="text-muted-foreground text-lg">Explore our comprehensive range of digital solutions.</p>
@@ -70,6 +70,16 @@ const Services = () => {
                     View Packages <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </div>
             </Link>
+        </div>
+
+        {/* Interlinking */}
+        <div className="mt-16 pt-8 border-t border-white/10 text-center">
+            <p className="text-muted-foreground text-base">
+                Ready to boost your organic reach? Learn more about our search engine optimization strategies at our{' '}
+                <Link to="/services/seo" className="text-accent hover:underline font-semibold">
+                    digital agency for web design & seo
+                </Link>.
+            </p>
         </div>
       </div>
     );
