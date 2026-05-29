@@ -4,6 +4,7 @@ import { Palette, Layout, Smartphone, ArrowRight, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Head from '../components/layout/Seo';
 import LeadCaptureForm from '../components/common/LeadCaptureForm';
+import { formatPrice } from '../utils/currency';
 
 const ServiceDesign = () => {
     const [products, setProducts] = useState([]);
@@ -147,7 +148,7 @@ const ServiceDesign = () => {
                                     <h3 className="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">{product.name}</h3>
                                     <p className="text-slate-400 text-sm mb-4 line-clamp-2">{product.description}</p>
                                     <div className="flex justify-between items-center">
-                                       <span className="font-bold text-lg">${product.basePrice}</span>
+                                       <span className="font-bold text-lg">{formatPrice(product.basePrice)}</span>
                                        <a href={`/checkout?productId=${product._id}`} className="btn-outline text-xs px-4 py-2 hover:bg-pink-500 hover:text-white hover:border-pink-500">
                                             View Project <ArrowRight className="w-3 h-3 ml-1 inline" />
                                        </a>

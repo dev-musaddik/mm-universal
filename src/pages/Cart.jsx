@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Trash2, ArrowRight, ShoppingBag, ChevronLeft } from 'lucide-react';
 import Seo from '../components/layout/Seo';
 import { useCart } from '../context/CartContext';
+import { formatPrice } from '../utils/currency';
 
 const Cart = () => {
     const { cart, removeFromCart, cartTotal, loading } = useCart();
@@ -66,7 +67,7 @@ const Cart = () => {
                                 <div className="flex-1 min-w-0">
                                     <h3 className="font-bold text-xl mb-1 truncate">{name}</h3>
                                     <p className="text-slate-400 text-sm mb-2">Category: {item.category || 'Digital Service'}</p>
-                                    <div className="font-bold text-accent text-lg">${price}</div>
+                                    <div className="font-bold text-accent text-lg">{formatPrice(price)}</div>
                                 </div>
 
                                 <div className="flex flex-col items-end gap-4">
@@ -94,15 +95,15 @@ const Cart = () => {
                         <div className="space-y-3 mb-6">
                             <div className="flex justify-between text-slate-400">
                                 <span>Subtotal</span>
-                                <span>${cartTotal}</span>
+                                <span>{formatPrice(cartTotal)}</span>
                             </div>
                             <div className="flex justify-between text-slate-400">
                                 <span>Tax</span>
-                                <span>$0.00</span>
+                                <span>{formatPrice(0)}</span>
                             </div>
                             <div className="flex justify-between text-white font-bold text-xl pt-4 border-t border-white/10">
                                 <span>Total</span>
-                                <span className="text-accent">${cartTotal}</span>
+                                <span className="text-accent">{formatPrice(cartTotal)}</span>
                             </div>
                         </div>
 

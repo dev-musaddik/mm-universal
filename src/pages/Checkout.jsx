@@ -4,6 +4,7 @@ import { ShieldCheck, Truck, CreditCard } from 'lucide-react';
 import Seo from '../components/layout/Seo';
 import { toast } from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
+import { formatPrice, convertPrice } from '../utils/currency';
 
 const Checkout = () => {
     const [searchParams] = useSearchParams();
@@ -140,7 +141,7 @@ const Checkout = () => {
                 product: item.product,
                 name: item.name,
                 quantity: item.quantity,
-                price: item.price
+                price: convertPrice(item.price)
             }));
 
             const orderData = {
@@ -242,22 +243,22 @@ const Checkout = () => {
                                         <h4 className="font-bold text-sm truncate">{item.name}</h4>
                                         <p className="text-xs text-slate-400">Qty: {item.quantity}</p>
                                     </div>
-                                    <div className="font-bold text-sm">${item.price * item.quantity}</div>
+                                    <div className="font-bold text-sm">{formatPrice(item.price * item.quantity)}</div>
                                 </div>
                             ))}
                         </div>
 
                         <div className="flex justify-between mb-2 text-slate-400">
                             <span>Subtotal</span>
-                            <span>${totalPrice}</span>
+                            <span>{formatPrice(totalPrice)}</span>
                         </div>
                         <div className="flex justify-between mb-4 text-slate-400">
                             <span>Tax (Estimated)</span>
-                            <span>$0.00</span>
+                            <span>{formatPrice(0)}</span>
                         </div>
                         <div className="flex justify-between pt-4 border-t border-white/10 font-bold text-lg text-accent">
                             <span>Total</span>
-                            <span>${totalPrice}</span>
+                            <span>{formatPrice(totalPrice)}</span>
                         </div>
                         
                         <div className="mt-6 space-y-3 text-xs text-slate-500">
@@ -335,7 +336,7 @@ const Checkout = () => {
                             </div>
 
                             <button disabled={submitting} type="submit" className="btn-primary w-full py-4 text-lg font-bold shadow-xl shadow-accent/20 mt-6">
-                                {submitting ? 'Processing...' : `Place Order - $${totalPrice}`}
+                                {submitting ? 'Processing...' : `Place Order - ${formatPrice(totalPrice)}`}
                             </button>
                         </form>
                     </div>

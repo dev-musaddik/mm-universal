@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Package, Clock, CheckCircle, XCircle, Search, Filter, DollarSign, Calendar, ArrowUpDown, CreditCard } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import AdminLayout from '../../components/admin/AdminLayout';
+import { formatAdminPrice } from '../../utils/currency';
 
 const OrderList = () => {
     const [orders, setOrders] = useState([]);
@@ -281,7 +282,7 @@ const OrderList = () => {
                                                 {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                             </span>
                                         </td>
-                                        <td className="p-4 font-bold text-foreground text-sm">${order.totalAmount}</td>
+                                        <td className="p-4 font-bold text-foreground text-sm">{formatAdminPrice(order.totalAmount)}</td>
                                         <td className="p-4">
                                             <select
                                                 value={order.status || 'pending'}

@@ -5,6 +5,7 @@ import { ShoppingBag, Star, Server, Shield, Smartphone } from 'lucide-react';
 
 import Head from '../components/layout/Seo';
 import LeadCaptureForm from '../components/common/LeadCaptureForm';
+import { formatPrice } from '../utils/currency';
 
 const WebSale = () => {
     const [products, setProducts] = useState([]);
@@ -141,7 +142,7 @@ const WebSale = () => {
                                 <div className="flex items-center justify-between mt-auto">
                                     <div>
                                         <p className="text-slate-500 text-xs uppercase tracking-wider">Starting at</p>
-                                        <p className="text-2xl font-bold text-white">${product.basePrice}</p>
+                                        <p className="text-2xl font-bold text-white">{formatPrice(product.basePrice)}</p>
                                     </div>
                                     <Link to={`/checkout?productId=${product._id}`} className="btn-primary py-2 px-6 text-sm">
                                         Order Now

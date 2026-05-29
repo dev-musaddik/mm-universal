@@ -4,6 +4,7 @@ import { TrendingUp, BarChart3, Search, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Head from '../components/layout/Seo';
 import LeadCaptureForm from '../components/common/LeadCaptureForm';
+import { formatPrice } from '../utils/currency';
 
 const ServiceSEO = () => {
     const [packages, setPackages] = useState([]);
@@ -98,7 +99,7 @@ const ServiceSEO = () => {
                         <Search className="w-10 h-10 text-gold mb-6" />
                         <h3 className="text-xl font-bold mb-2">{pkg.name}</h3>
                         <p className="text-slate-400 mb-6">{pkg.description}</p>
-                        <p className="text-2xl font-bold text-white mb-6">${pkg.basePrice}</p>
+                        <p className="text-2xl font-bold text-white mb-6">{formatPrice(pkg.basePrice)}</p>
                         <button className="btn-outline w-full text-sm">View Details</button>
                     </div>
                 ))}

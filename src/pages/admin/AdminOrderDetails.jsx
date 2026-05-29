@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Package, User, MapPin, CreditCard, Calendar, CheckCircle, Truck, XCircle, AlertCircle } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import AdminLayout from '../../components/admin/AdminLayout';
+import { formatAdminPrice } from '../../utils/currency';
 
 const AdminOrderDetails = () => {
     const { id } = useParams();
@@ -148,8 +149,8 @@ const AdminOrderDetails = () => {
                                         </div> */}
                                     </div>
                                     <div className="text-right">
-                                        <div className="font-bold text-lg">${item.price}</div>
-                                        <div className="text-sm text-slate-400">Total: ${item.price * item.quantity}</div>
+                                        <div className="font-bold text-lg">{formatAdminPrice(item.price)}</div>
+                                        <div className="text-sm text-slate-400">Total: {formatAdminPrice(item.price * item.quantity)}</div>
                                     </div>
                                 </div>
                             ))}
@@ -157,15 +158,15 @@ const AdminOrderDetails = () => {
                         <div className="mt-6 pt-6 border-t border-white/10 flex flex-col gap-2 text-sm">
                             <div className="flex justify-between text-slate-400">
                                 <span>Subtotal</span>
-                                <span>${order.totalAmount - (order.deliveryCharge || 0)}</span>
+                                <span>{formatAdminPrice(order.totalAmount - (order.deliveryCharge || 0))}</span>
                             </div>
                             <div className="flex justify-between text-slate-400">
                                 <span>Delivery/Service Fee</span>
-                                <span>${order.deliveryCharge || 0}</span>
+                                <span>{formatAdminPrice(order.deliveryCharge || 0)}</span>
                             </div>
                             <div className="flex justify-between font-bold text-xl text-white mt-2 pt-2 border-t border-white/10">
                                 <span>Total</span>
-                                <span>${order.totalAmount}</span>
+                                <span>{formatAdminPrice(order.totalAmount)}</span>
                             </div>
                         </div>
                     </div>

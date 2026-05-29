@@ -3,6 +3,7 @@ import { ShieldCheck, Truck, CreditCard, Loader2, AlertCircle, CheckCircle, Arro
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { formatPrice, convertPrice } from '../../utils/currency';
 
 const LandingCheckout = ({ product, landingPageId }) => {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ const LandingCheckout = ({ product, landingPageId }) => {
                 product: product._id || null, 
                 name: product.name,
                 quantity: quantity,
-                price: product.basePrice || product.price || 0
+                price: convertPrice(product.basePrice || product.price || 0)
             }];
 
             const orderData = {
@@ -271,7 +272,7 @@ const LandingCheckout = ({ product, landingPageId }) => {
                         </div>
                         <div className="flex-1">
                             <h4 className="font-bold text-lg text-foreground mb-1 line-clamp-2">{product.name}</h4>
-                            <div className="text-xl font-bold text-accent mb-2">${unitPrice}</div>
+                            <div className="text-xl font-bold text-accent mb-2">{formatPrice(unitPrice)}</div>
                         </div>
                     </div>
                     
@@ -301,7 +302,7 @@ const LandingCheckout = ({ product, landingPageId }) => {
                     <div className="space-y-4 border-t border-border pt-6">
                         <div className="flex justify-between text-muted-foreground">
                             <span>{t('checkout.subtotal')}</span>
-                            <span>${totalPrice}</span>
+                            <span>{formatPrice(totalPrice)}</span>
                         </div>
                         <div className="flex justify-between text-muted-foreground">
                             <span>{t('checkout.shipping')}</span>
@@ -309,7 +310,7 @@ const LandingCheckout = ({ product, landingPageId }) => {
                         </div>
                         <div className="flex justify-between pt-4 border-t border-border font-bold text-2xl text-foreground">
                             <span>{t('checkout.total')}</span>
-                            <span>${totalPrice}</span>
+                            <span>{formatPrice(totalPrice)}</span>
                         </div>
                     </div>
 
