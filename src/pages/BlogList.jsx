@@ -29,9 +29,9 @@ const BlogList = () => {
     return (
         <div className="pt-32 pb-20 container-custom min-h-screen">
             <Head 
-                title="MM Universal Blog | Insights & News"
-                description="Latest updates, tutorials, and insights on web development, design, and digital marketing."
-                keywords="web design blog, digital marketing news, tech tutorials, mm universal blog"
+                title="MM Universal Blog | Web Design & SEO Insights"
+                description="Latest updates, tutorials, and insights on web development, design, and digital marketing by MM Universal, a leading digital agency for web design & seo."
+                keywords="digital agency for web design & seo, web design blog, digital marketing news, tech tutorials, mm universal blog"
             />
 
             <div className="text-center max-w-3xl mx-auto mb-16">

@@ -2,9 +2,9 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 const Seo = ({ 
-  title = "MM Universal | Digital Agency", 
-  description = "Premium website design, development, and digital marketing services to grow your business.",
-  keywords = "web development, digital agency, seo, react developer, ui/ux design",
+  title = "MM Universal | #1 Digital Agency for Web Design & SEO", 
+  description = "MM Universal is a premier digital agency for web design & seo, providing custom development, SEO growth, and digital marketing to scale your business.",
+  keywords = "digital agency for web design & seo, web development, digital agency, seo, react developer, ui/ux design",
   image = "/og-image.jpg", // Default OG image (ensure this exists in public folder later)
   type = "website",
   date,

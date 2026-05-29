@@ -45,8 +45,8 @@ const Portfolio = () => {
         <div className="pt-24 min-h-screen container-custom pb-20">
             <Seo 
                 title="Web Design Portfolio & Success Stories | MM Universal"
-                description="View our latest work in web design, e-commerce, and mobile apps. Buy high-quality ready-made digital assets."
-                keywords="web design portfolio, website examples, buy ready made websites, digital assets store"
+                description="Browse premium ready-made websites and custom applications built by MM Universal, the top digital agency for web design & seo."
+                keywords="digital agency for web design & seo, web design portfolio, website examples, buy ready made websites, digital assets store"
             />
 
             {/* Hero */}

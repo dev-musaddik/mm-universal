@@ -85,8 +85,9 @@ const DynamicLandingPage = () => {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent selection:text-white">
             <Head 
-                title={`${page.title} | Special Offer`}
-                description={page.heroSubheadline}
+                title={`${page.title} | Special Offer | MM Universal`}
+                description={page.heroSubheadline || "Exclusive digital product offer by MM Universal, a leading digital agency for web design & seo."}
+                keywords={`${page.title.toLowerCase()}, special offer, digital product, digital agency for web design & seo`}
                 schema={{
                     "@type": "Product", 
                     "name": page.title,

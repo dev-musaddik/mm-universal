@@ -55,9 +55,9 @@ const Contact = () => {
     return (
     <div className="pt-32 pb-20 container-custom">
       <Seo 
-          title="Contact Us | Start Your Digital Project"
-          description="Get in touch with MM Universal. Let's discuss your web design, SEO, or marketing needs today."
-          keywords="contact digital agency, hire web developer, business inquiry"
+          title="Contact Us | Start Your Digital Project | MM Universal"
+          description="Get in touch with MM Universal. Let's discuss your web design, SEO, or marketing needs with the premier digital agency for web design & seo."
+          keywords="digital agency for web design & seo, contact digital agency, hire web developer, business inquiry"
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
