@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /order-success/
 
-Sitemap: https://mmuniversal.com/sitemap.xml
+Sitemap: https://www.mm-universal.com/sitemap.xml
