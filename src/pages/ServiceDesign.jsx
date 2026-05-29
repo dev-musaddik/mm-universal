@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Palette, Layout, Smartphone, ArrowRight, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Head from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const ServiceDesign = () => {
     const [products, setProducts] = useState([]);
@@ -188,6 +189,8 @@ const ServiceDesign = () => {
                     </Link>
                 </div>
             </div>
+            {/* Lead Capture Form */}
+            <LeadCaptureForm pageName="Design Services" />
             </div>
         </div>
     );

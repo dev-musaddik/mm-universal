@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, TrendingUp, BarChart2, DollarSign, Facebook, Instagram, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const ServiceAds = () => {
     // Interactive demo state (mock campaign data)
@@ -171,6 +172,9 @@ const ServiceAds = () => {
                     <p className="text-slate-400 mb-6">Visually compelling story and feed ads to build brand awareness and sales.</p>
                 </div>
             </div>
+
+            {/* Lead Capture Form */}
+            <LeadCaptureForm pageName="Ads Management Services" />
 
             {/* Interlinking */}
             <div className="mt-16 pt-8 border-t border-white/10 text-center">

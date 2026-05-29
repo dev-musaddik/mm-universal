@@ -5,14 +5,14 @@
 @layer base {
   :root {
     /* Light Mode Variables */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 20% 99%; /* Off-white premium canvas */
+    --foreground: 222.2 47.4% 11.2%; /* Deep charcoal slate */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222.2 47.4% 11.2%;
  
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 47.4% 11.2%;
  
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -23,17 +23,17 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
  
-    --accent: 199 89% 48%; /* Sky 500 */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 221.2 83.2% 53.3%; /* Premium Steel Royal Blue */
+    --accent-foreground: 210 40% 98%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221.2 83.2% 53.3%;
  
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
  
   .dark {
@@ -138,5 +138,37 @@
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(to right, #F59E0B, #D97706, #F59E0B);
+  }
+
+  /* Light Mode Premium Overrides for Hardcoded Dark Classes */
+  html:not(.dark) .border-white\/10 {
+    border-color: hsl(var(--border)) !important;
+  }
+  html:not(.dark) .bg-white\/5 {
+    background-color: hsl(var(--secondary) / 0.75) !important;
+  }
+  html:not(.dark) .bg-white\/10 {
+    background-color: hsl(var(--secondary)) !important;
+  }
+  html:not(.dark) .text-white {
+    color: hsl(var(--foreground)) !important;
+  }
+  html:not(.dark) .text-slate-400 {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  html:not(.dark) .text-slate-300 {
+    color: hsl(var(--foreground) / 0.85) !important;
+  }
+  html:not(.dark) .text-slate-200 {
+    color: hsl(var(--foreground)) !important;
+  }
+  html:not(.dark) .text-slate-500 {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  html:not(.dark) .bg-primary-dark {
+    background-color: hsl(var(--secondary)) !important;
+  }
+  html:not(.dark) .prose-invert {
+    color: hsl(var(--foreground)) !important;
   }
 }

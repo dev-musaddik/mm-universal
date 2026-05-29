@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, BarChart3, Search, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Head from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const ServiceSEO = () => {
     const [packages, setPackages] = useState([]);
@@ -102,6 +103,9 @@ const ServiceSEO = () => {
                     </div>
                 ))}
             </div>
+
+            {/* Lead Capture Form */}
+            <LeadCaptureForm pageName="SEO Services" />
 
             {/* Interlinking */}
             <div className="mt-16 pt-8 border-t border-white/10 text-center">

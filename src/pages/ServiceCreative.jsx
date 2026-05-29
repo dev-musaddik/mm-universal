@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Palette, Video, MonitorPlay, Layers, CheckCircle, ArrowRight, Star } from 'lucide-react';
 import Head from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const ServiceCreative = () => {
     const targetRef = useRef(null);
@@ -226,6 +227,9 @@ const ServiceCreative = () => {
                     </p>
                 </div>
             </section>
+
+            {/* Lead Capture Form */}
+            <LeadCaptureForm pageName="Creative Services" />
         </div>
     );
 };

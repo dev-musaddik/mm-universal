@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Layout, TrendingUp, Code, ArrowRight, Target, Palette } from 'lucide-react';
 
 import Head from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const Services = () => {
     return (
@@ -71,6 +72,9 @@ const Services = () => {
                 </div>
             </Link>
         </div>
+
+        {/* Lead Capture Form */}
+        <LeadCaptureForm pageName="Services Index" />
 
         {/* Interlinking */}
         <div className="mt-16 pt-8 border-t border-white/10 text-center">

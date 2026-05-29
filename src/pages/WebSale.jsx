@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Star, Server, Shield, Smartphone } from 'lucide-react';
 
 import Head from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 const WebSale = () => {
     const [products, setProducts] = useState([]);
@@ -152,6 +153,9 @@ const WebSale = () => {
                 </div>
             )}
             
+            {/* Lead Capture Form */}
+            <LeadCaptureForm pageName="Web Development Services" />
+
             {/* Complementary Services (Interlinking) */}
             <div className="mt-20 border-t border-white/10 pt-16">
                 <div className="text-center mb-12">

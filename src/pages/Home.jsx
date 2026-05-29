@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Code, Layout, TrendingUp, Rocket, Target, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/layout/Seo';
+import LeadCaptureForm from '../components/common/LeadCaptureForm';
 
 import { useTranslation } from 'react-i18next';
 
@@ -138,38 +139,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Project / CTA Section with Image */}
-      <section className="py-24">
-        <div className="container-custom">
-          <div className="relative rounded-3xl overflow-hidden min-h-[500px] flex items-center p-8 md:p-20">
-             {/* Background Image */}
-             <div className="absolute inset-0">
-                <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
-                    alt="Team collaboration" 
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-primary-dark/90 mix-blend-multiply"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-transparent"></div>
-             </div>
-
-             <div className="relative z-10 max-w-2xl">
-                <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Ready to Transform Your Business?</h2>
-                <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-                  Join hundreds of satisfied clients who have scaled their operations with our digital solutions. We combine creativity with technical excellence to deliver results.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link to="/contact" className="btn-primary inline-flex items-center justify-center gap-2">
-                    Get Your Free Quote <Rocket className="w-4 h-4" />
-                  </Link>
-                  <Link to="/services" className="btn-outline inline-flex items-center justify-center gap-2">
-                    Explore Services
-                  </Link>
-                </div>
-             </div>
-          </div>
-        </div>
-      </section>
+      {/* Lead Generation Form */}
+      <LeadCaptureForm pageName="Homepage" />
     </>
   );
 };
